@@ -41,3 +41,9 @@ export const shift = (array) => {
 
   return newArray;
 };
+
+
+export const unshift = (array, element) => {
+  const newArray = [element, ...array]; 
+  return newArray.length; 
+};

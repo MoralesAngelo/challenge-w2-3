@@ -1,4 +1,4 @@
-import { arrayLength, push, myPop, myIndexOff, shift } from './modeles.js';
+import { arrayLength, push, myPop, myIndexOff, shif, unshift } from './modeles.js';
 
 describe('arrayLength', () => {
   test('it should be 0 when argument is []', () => {
@@ -63,7 +63,7 @@ describe('myPop', () => {
 });
 
 
-describe.only('shift', () => {
+describe('shift', () => {
   test('it should be ... when argument is [1,2,3,4]', () => {
     const array = [1, 2, 3, 4, 5];
     const expected = 1;
@@ -72,3 +72,17 @@ describe.only('shift', () => {
     expect(result).toBe(expected);
   });
 });
+
+
+describe.only('unshift', () => {
+  test('it should be 1 when argument is [2,3,4,5]', () => {
+    const array = [2, 3, 4,5]
+    const element = 1
+    const expected = 5;
+    const result = unshift(array);
+
+    expect(result).toBe(expected);
+  });
+});
+
+
