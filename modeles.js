@@ -7,24 +7,24 @@ export const arrayLength = (array) => {
   return r;
 };
 
-export const arrayPush = (array, element) => {
+export const push = (array, element) => {
   const newArray = [...array, element];
-  array[arrayLength(array)] = element
+  array[arrayLength(array)] = element;
   return arrayLength(newArray);
 };
 
-export const myIndexOff = (array, element) => {
+export const indexOff = (array, element) => {
   let elementIndex = -1;
   const arrayindex = arrayLength(array);
   for (let i = 0; i < arrayindex; i++) {
     if (element === array[i]) {
       elementIndex = i;
-      break
+      break;
     }
   }
   return elementIndex;
 };
-export const myPop = (array) => {
+export const pop = (array) => {
   const deletec = array[array.length - 1];
 
   array.length = array.length - 1;
@@ -33,7 +33,6 @@ export const myPop = (array) => {
 };
 
 export const shift = (array) => {
-
   const firstElement = array[0];
   for (let i = 0; i < array.length - 1; i++) {
     array[i] = array[i + 1];
@@ -44,11 +43,34 @@ export const shift = (array) => {
   return firstElement;
 };
 
-
 export const unshift = (array, element) => {
-  const newArray = [element, ...array]; 
-  return newArray.length; 
+  const newArray = [element, ...array];
+  return newArray.length;
 };
 
+export const map = (arr, callback) => {
+  const newArr = [];
+  for (const element of arr) {
+    push(newArr, callback(element));
+  }
 
+  return newArr;
+};
 
+export const filter = (array, condicion) => {
+  const newArray = [];
+  for (const iterator of array) {
+    if (condicion(iterator) === true) {
+      push(newArray, iterator);
+    }
+  }
+  return newArray;
+};
+
+export const find = (array, condicion) => {
+  for (const iterator of array) {
+    if (condicion(iterator)) {
+      return iterator;
+    }
+  }
+};
