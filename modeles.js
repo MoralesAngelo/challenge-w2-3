@@ -7,9 +7,10 @@ export const arrayLength = (array) => {
   return r;
 };
 
-export const push = (array, element) => {
+export const arrayPush = (array, element) => {
   const newArray = [...array, element];
-  return newArray;
+  array[arrayLength(array)] = element
+  return arrayLength(newArray);
 };
 
 export const myIndexOff = (array, element) => {
@@ -18,6 +19,7 @@ export const myIndexOff = (array, element) => {
   for (let i = 0; i < arrayindex; i++) {
     if (element === array[i]) {
       elementIndex = i;
+      break
     }
   }
   return elementIndex;
@@ -32,14 +34,14 @@ export const myPop = (array) => {
 
 export const shift = (array) => {
 
-  const newArray = array[0];
+  const firstElement = array[0];
   for (let i = 0; i < array.length - 1; i++) {
     array[i] = array[i + 1];
   }
 
   array.length--;
 
-  return newArray;
+  return firstElement;
 };
 
 
@@ -47,3 +49,6 @@ export const unshift = (array, element) => {
   const newArray = [element, ...array]; 
   return newArray.length; 
 };
+
+
+
