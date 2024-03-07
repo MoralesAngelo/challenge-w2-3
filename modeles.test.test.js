@@ -1,4 +1,4 @@
-import { arrayLength, push, myPop, myIndexOff, shif, unshift } from './modeles.js';
+import { arrayLength, arrayPush, myPop, myIndexOff, shif, unshift } from './modeles.js';
 
 describe('arrayLength', () => {
   test('it should be 0 when argument is []', () => {
@@ -30,12 +30,11 @@ describe('arrayLength', () => {
   });
 });
 
-describe('push', () => {
+describe.only('push', () => {
   test('it should be [4] when argument is [1,2,3]', () => {
     const array = [1, 2, 3];
     const element = 4;
-
-    const result = push(array, element);
+    const result = arrayPush(array, element);
 
     expect(arrayLength(result)).toBe(arrayLength(array) + 1);
   });
@@ -74,7 +73,7 @@ describe('shift', () => {
 });
 
 
-describe.only('unshift', () => {
+describe('unshift', () => {
   test('it should be 1 when argument is [2,3,4,5]', () => {
     const array = [2, 3, 4,5]
     const element = 1
